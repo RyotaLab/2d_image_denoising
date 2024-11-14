@@ -14,7 +14,7 @@ height = 20
 np.random.seed(1)
 
 # x：二次元 -> D(x)：三次元
-def D(x):#改良後
+def D(x):
     Dx = np.zeros((height, width, 2))
     Dx[:-1,:,0] = x[1:,:] - x[:-1,:]
     Dx[:,:-1,1] = x[:,1:] - x[:,:-1]
@@ -56,7 +56,7 @@ def C(v1, v2, v3):
     return -C_v1v2v3
 
 # u：三次元 -> v：二次元 * 3
-def trans_C(u):#改良後
+def trans_C(u):
     v1 = np.zeros((height, width, 2))
     v2 = np.zeros((height, width, 2))
     v3 = np.zeros((height, width, 2))
@@ -106,7 +106,7 @@ for i in range(height):
         tmp = np.random.randint(1, 100)
         if tmp < 30:
             y[i][k] = np.random.randint(0, 256)
-#x = copy.copy(y)
+
 x = np.zeros((height, width))
 u = np.zeros((height, width, 2))
 v1 = np.zeros((height, width, 2))
@@ -153,11 +153,11 @@ print(np.sum(x - y))
 plt.subplot(1, 2, 1)
 plt.imshow(y, cmap='viridis')  # ヒートマップの色を指定
 plt.colorbar()                    # カラーバーを表示
-plt.title("y")  # タイトル
+plt.title("y")
 
 plt.subplot(1, 2, 2)
 plt.imshow(x, cmap='viridis')  # ヒートマップの色を指定
 plt.colorbar()                    # カラーバーを表示
-plt.title("x")  # タイトル
+plt.title("x")
 plt.tight_layout()
 plt.show()
